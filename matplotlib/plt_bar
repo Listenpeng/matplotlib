@@ -1,0 +1,80 @@
+#Author: Listen
+#!/usr/bin/env python3
+#-*- coding:utf-8 -*-
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+def bar1():
+    plt.figure()
+    xvals1 = range(1,9)
+    xvals2 =[x+0.3 for x in xvals1]
+    y1 = np.array([x for x in range(1,9)])
+    y2 = y1**2
+    plt.bar(xvals1, y1, width=0.3, color='m')
+    plt.bar(xvals2, y2, width=0.3, color='g')
+    plt.savefig('../savefig/double_bar1.png')
+    plt.show()
+
+bar1()
+
+def bar2():
+    plt.figure()
+    linear_data=np.array([x for x in range(1,9)])
+    pos=range(len(linear_data))
+    print(pos)
+    quadratic_data=linear_data**2
+    plt.bar(pos, linear_data, width=0.3, color='b')
+    plt.bar(pos, quadratic_data, width=0.3,
+            bottom=linear_data, color='r')
+
+    ax=plt.gca()
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_title('Quadratic vs. Linear performance')
+    plt.savefig('../savefig/double_bar2.png')
+    plt.show()
+
+bar2()
+
+def bar3():
+    scores=[100, 85, 90, 70, 75, 80]
+    pos=np.arange(len(scores))
+    colors = ['r', 'g', 'y', 'm', 'c', 'b']
+    bars= plt.bar(pos, scores, width=0.5, align='center')
+    for i,c in enumerate(colors):
+        bars[i].set_color(c)
+    plt.savefig('../savefig/double_bar3.png')
+    plt.show()
+
+bar3()
+
+def bar4():
+    plt.figure()
+    linear_data=np.array([x for x in range(1, 9)])
+    data2=linear_data*np.pi
+    xvals=range(len(linear_data))
+    plt.barh(xvals, linear_data, height=0.8, color='b')
+    plt.barh(xvals, data2, height=0.8, left=linear_data, color='g')
+    plt.xticks([x for x in range(1, 40, 2)])
+    plt.savefig('../savefig/double_bar4.png')
+    plt.show()
+
+bar4()
+
+def bar5():
+    plt.figure()
+    n=10
+    X=np.arange(n)
+    Y1=(1-X/float(n))*np.random.uniform(0.5, 1, n)
+
+    plt.bar(X, +Y1, facecolor='#9919ff', edgecolor='white')
+    plt.bar(X, -Y1, facecolor='#ff1999', edgecolor='white')
+    ax=plt.gca()
+    for x, y in zip(X, Y1):
+        ax.text(x,y+0.02,'%.2f'%y, ha='center', va='bottom')
+    plt.savefig('../savefig/double_bar5.png')
+    plt.show()
+
+bar5()
+
