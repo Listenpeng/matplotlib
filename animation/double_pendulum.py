@@ -84,6 +84,6 @@ def animate(i):
 ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
                               interval=25, blit=True, init_func=init)
 
-ani.save('double_pendulum.gif', writer='imagemagick', fps=30, dpi=40)
+ani.save('../savefig/double_pendulum.gif', writer='imagemagick', fps=30, dpi=40)
 plt.show()
 
